@@ -42,8 +42,6 @@ export default class Helpers {
         cursor: pointer;
         line-height: normal;
         display: flex;
-      }
-      .apexcharts-legend.apx-legend-position-bottom .apexcharts-legend-series, .apexcharts-legend.apx-legend-position-top .apexcharts-legend-series{
         align-items: center;
       }
       .apexcharts-legend-text {
@@ -59,7 +57,7 @@ export default class Helpers {
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        margin-right: 3px;
+        margin-right: 1px;
       }
 
       .apexcharts-legend-series.apexcharts-no-click {
@@ -79,14 +77,12 @@ export default class Helpers {
     return stylesheet
   }
 
-  getLegendBBox() {
+  getLegendDimensions() {
     const w = this.w
     let currLegendsWrap =
       w.globals.dom.baseEl.querySelector('.apexcharts-legend')
-    let currLegendsWrapRect = currLegendsWrap.getBoundingClientRect()
-
-    let currLegendsWrapWidth = currLegendsWrapRect.width
-    let currLegendsWrapHeight = currLegendsWrapRect.height
+    let currLegendsWrapWidth = currLegendsWrap.offsetWidth
+    let currLegendsWrapHeight = currLegendsWrap.offsetHeight
 
     return {
       clwh: currLegendsWrapHeight,
